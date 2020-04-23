@@ -1,6 +1,8 @@
+/*--Binyam Kahsay ID: 610694--*/
+
 body {
     margin: 0;
-    background-image: url('../images/movie/background.png');
+    background-image: url('../Assets/moviesImages/background.png');
     padding: 0;
     font-size: 8pt;
     font-family: Verdana, Tahoma, "sans-serif";
@@ -8,47 +10,49 @@ body {
 .container {
     margin: auto;
     width: 800px;
-    border: solid 4px gray;
-    border-radius: 20px;
+    border: solid 4px  blueviolet;
+    border-radius: 60px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 550px 250px;
+    grid-template-columns: 550px 300px;
   
 }
 .banner {
-    text-align: center;
-    background-image: url('../images/movie/bannerbg.png');
-    height: 50px;
+    text-align: right;
+    background-image: url('../Assets/moviesImages/bannerbg.png');
+    height: 80px;
 }
 h1 {
     font-size: 24pt;
     font-family: Tahoma, Verdana, serif;
-    text-shadow: 3px 3px #999999;
+    text-shadow:  3px 4px 6px #999999;
     text-align: center;
 }
 .reviews {
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 10px;
+    grid-gap: 50px;
     padding: 20px;
 }
 .miniheader {
     background-image: url("../images/movie/rbg.png");
     background-repeat: repeat-x;
+   
     height: 83px;
 }
 
-p > img {
+p > img {     /*image inside p - wrap around it*/
     float: left;
-    padding-right: 5px;
+    padding-right: 9px;
 }
 .reviewer {
     overflow: hidden;
+    color: black ;
 }
 .comment {
-    border: solid 2px gray;
-    padding-left: 4px;
-    border-radius: 10px;
+    border: solid 2px rgb(109, 13, 13);
+    padding-left: 5px;
+    border-radius: 15px;
     background-color: #E8DC9B;
     min-height: 24px;
     padding: 8px;
@@ -56,7 +60,7 @@ p > img {
 
 .comment p {
     text-indent: 4px;
-    font-size: 8pt;
+    font-size: 7pt;
     font-weight: bold;
 }
 
@@ -64,13 +68,13 @@ span {
     color: red;
     font-size: 48pt;
     font-weight: bold;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 .definition {
-    background-color: #a2b964;
-    font-size: 8pt;
-    padding: 0px 10px 10px 10px;
+    background-color: #92c20e;
+    font-size: 9pt;
+    padding: 1px 10px 10px 10px;
     font-family: Arial, "sans-serif";
 }
 
@@ -79,9 +83,10 @@ span {
      background-color: #b9d862;
 }
 .bottom{
-    background-color: #a2b964;
+    background-color: #698b09;
     text-align: center;
     height: 28px;
+    
 }
 .addcolor{
     background-color: #a2b964;
@@ -91,15 +96,18 @@ span {
     padding: 0px;
 }
 .validator {
-    position: fixed;
+
+    position: fixed;     /*in relative to the viewport*/
+    
     bottom: 0;
     right: 0;
-    opacity: 50%;
+    opacity: 50%;   /*visibility*/
 }
 .reviewer img {
     padding-right: 5px;
 }
 dt{
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
