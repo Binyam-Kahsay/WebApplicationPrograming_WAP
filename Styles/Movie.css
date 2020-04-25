@@ -14,7 +14,7 @@ body {
     border-radius: 60px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 550px 300px;
+    grid-template-columns: 550px 250px;
   
 }
 .banner {
@@ -31,6 +31,7 @@ h1 {
 .reviews {
     display: grid;
     grid-template-columns: auto auto;
+    
     grid-gap: 50px;
     padding: 20px;
 }

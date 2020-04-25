@@ -1,0 +1,144 @@
+
+
+<!----Name: Binyam Kahsay
+
+    ID: 610694
+-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>MUM Golden Dome Market  ::: SRM system </title>
+
+    <script  src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="../js/new-product.js"></script>
+
+</head>
+
+
+
+<body>
+    <div>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a style="padding-right: 2em;" class="navbar-brand" href="index.html">MIU Golden Dome Market : : : SRM System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                        <a class="nav-link" href="./new-product.html">Products</a>
+                    </li>
+                    <li class="nav-item" style="border-left: white 1px solid; padding-left: 2em;">
+                        <a class="nav-link" href="#">Suppliers</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <span style="color: #ffffff;"> Hello ! &nbsp;</span>
+                    
+                    
+                    <button type="button" class="btn btn-light">Sign Out</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="container" style="margin-top: 2em;">
+        <form id="productForm" name="productForm"  method="POST" >
+            <fieldset>
+                <legend>New Product Form</legend>
+                <div class="container" style="margin-top: 1em;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="productNumber">Product Number</label>
+                                <input id="productNumber" name="productNumber" type="text" class="form-control" required >
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" name="name" type="text" class="form-control" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="unitPrice">Unit Price</label>
+                                <input id="unitPrice" name="unitPrice" type="text" class="form-control" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="quantityInStock">Quantity in stock</label>
+                                <input id="quantityInStock" name="quantityInStock" type="number" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="supplier">Supplier:</label>
+                                <select name="supplier" id="supplier" class="form-control" required="required">
+                                    <option value="">Select a supplier</option>
+                                    <option value="supplier 1">supplier 1</option>
+                                    <option value="supplier 2">supplier 2</option>
+                                    <option value="supplier 1">supplier 3</option>
+                                    <option value="supplier 2">supplier 4</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateSupplied">Date supplied</label>
+                                <input id="dateSupplied"   name="dateSupplied" type="year" class="form-control"  required="required" placeholder="yyyy-mm-dd">
+                               <small>Enter a valid date</small>
+                            </div>
+                            <div style="float:right;">
+                                <button id="btnReset" type="reset" class="btn btn-outline-info" style="margin-right: 2em;">Reset</button>
+                                <a href="#" class="btn btn-outline-warning" style="margin-right: 2em;">Cancel</a>
+                                <!-- onclick="displayFormValues();" -->
+                                <input id="btnSubmit" type="submit" class="btn btn-outline-primary"  value="Add Product">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+<div id="result" style="display: none; border: 4px solid #fcfc; padding: 2em; margin: 2em; width: 470px;">
+    <!-- <p id="pname"></p>
+    <p id="qty"></p>
+    <p id="sup"></p> -->
+    <table class="table table-dark" style="width: 400px;">
+        <tr>
+            <th scope="row">Product Name:</th>
+            <td id="pname"></td>
+        </tr>
+        <tr>
+            <th scope="row">Quantity in Stock:</th>
+            <td id="qty"></td>
+        </tr>
+        <tr>
+            <th scope="row">Supplier:</th>
+            <td id="sup"></td>
+        </tr>
+    </table>
+     
+</div>
+    <footer>
+        <!-- TODO-->
+    </footer>
+
+<!--     
+    <script>
+        function displayFormValues() {
+          DispWindow = window.open('','Product Form', 'toolbar=no,resizable=yes,status=no,width=400,height=400')
+          result = "<table><tr><td>Product Number</td><td>" + document.productForm.productNumber.value;
+          result += "</td></tr><tr><td>Name</td><td>"+ document.productForm.name.value;
+          result += "</td></tr><tr><td>Unit Price</td><td>" + document.productForm.unitPrice.value
+          result += "</td></tr><tr><td>Quantity in stock</td><td>" + document.productForm.quantityInStock.value
+          result += "</td></tr><tr><td>Supplier</td><td>" + document.productForm.supplier.value
+          result += "</td></tr><tr><td>Date supplied</td><td>" + document.productForm.dateSupplied.value + "</td></tr>";
+          DispWindow.document.write(result);
+        }
+        </script> -->
+</body>
+</html>
