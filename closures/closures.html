@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        question-1
+_______________________________________________________
+
+x = 1;
+var a = 5;
+var b = 10;
+var c = function() {
+    document.write(x);
+    document.write(a);
+    var f = function(a, b, c) {
+        b = a;
+        document.write(b);
+        b = c;
+        var x = 5;
+    }
+    f(a, b, c);
+    document.write(b);
+    var x = 10;
+}
+c(8, 9, 10);
+document.write(b);
+document.write(x);
+
+-- -- -- -- -- -- -- -- -- -- -- -- --
+
+First, in the Global Lexical Environment:
+	Phase 1 - hoisting 
+		var x = undefined
+		var a = undefined
+		var b = undefined
+		var c = [function(){}]
+		
+	Phase 2 - Execution/Evaluation
+		x = 1
+		a = 5
+		b = 10
+		calls c()
+		
+		Next, in the c() function's Lexical Environment:	
+			Phase 1 - hoisting 
+				var x = undefined
+				var f = [function(){}]
+				
+			Phase 2 - Execution/Evaluation
+				document.write(x);  //x = 1 //global value 
+				document.write(a);  //a = 5 //global value 
+				calls f(8, 9, 10)
+					Phase 1 - hoisting 
+						var x = undefined
+						var a = undefined
+						var b = undefined
+						var c = undefined
+					Phase 2 - Execution/Evaluation
+						 					
+						a = 8
+						b = 8  //b=a 
+						document.write(b);  //8
+						c = 10
+						x = 5  //x updated
+		document.write(b);  //10
+		
+		x = 10  //nested scope 
+		
+		document.write(b);	//10  //global variable,
+		document.write(x);	//1    //global variable 
+
+
+
+
+
+question-2
+_______________________________________________________
+
+Variables defined inside a function are in local scope while variables defined outside of a function are in the global scope. Each function when invoked creates a new scope.
+		
+		
+question-3
+_______________________________________________________
+Given: javscript code, below 
+	 //scope A
+	 function XFunc(){
+		//Scope B
+		function yfunc(){
+			//scope C
+		}
+	 }
+	 
+(a) Do statetments in Scope A have access to variables defined in scope B and C?
+	No, scope A can't access nested scope/functions
+(b) Do statetments in Scope B have access to variables defined in scope A?
+	Yes, Scope of A global to scope of B.
+(c) Do statetments in Scope B have access to variables defined in scope C?
+	No, scope B can't access below nested scope
+
+(d) Do statetments in Scope C have access to variables defined in scope A?
+	yes, the act like global scope
+(e) Do statetments in Scope C have access to variables defined in scope B?
+	yes, the act like global scope
+	
+question-4
+_______________________________________________________	
+	
+	var x = 9;
+	function func(){
+		return x*x;
+	}
+	console.log(func())       //output: 91  //using global variable x =9
+	x = 5;
+	console.log(func())       //output: 25  //using updated global variable x =5
+	
+	
+question-5
+_______________________________________________________		
+	var foo = 1;
+	function bar(){
+		if(!foo){
+			var foo = 10;
+		}
+		alert(foo);      //alert 10, since variables declared with var,  have function level scope
+	}
+	bar();
+
+
+
+____Questions 6 and 8_______________________________________________________________________________________
+
+const count = {
+    counter: 0,
+    make_adder: function(inc) {
+        return this.counter += inc;
+    },
+    add: function() {
+        return this.counter += 1;
+    },
+    reset: function(){
+        return this.counter = 0;
+    }
+};
+console.log(count.add()); //1
+
+console.log(count.add()); //2
+
+console.log(count.make_adder(8));//10
+
+console.log(count.make_adder(8));//18
+
+console.log(count.make_adder(8));//26
+
+console.log(count.reset()); //0
+
+
+// Question 10
+_____________________________________________________________________________
+const Employee = (function() {
+    //private
+    let name;
+    let age;
+    let salary;
+
+    //public
+    const setAge = function(newAge){
+        age = newAge;
+    };
+
+    const setSalary = function(newSalary){
+        salary = newSalary;
+    };
+
+    const setName = function(newName){
+        name = newName;
+    };
+
+    //private methods
+    const getAge = function(){
+        return age;
+    };
+
+    const getSalary = function(){
+        return salary;
+    };
+    const getName = function(){
+        return name;
+    };
+    const increaseSalary = function (percentage) {
+       return getSalary() + (getSalary() * percentage)/100;
+    }
+    const incrementAge = function(){
+        return getAge() + 1;
+    }
+
+    return{
+        setAge:setAge,
+        setSalary:setSalary,
+        setName:setName,
+        increaseSalary:increaseSalary,
+        incrementAge:incrementAge
+    };
+
+})();
+
+Employee.setAge(32);
+console.log(Employee.incrementAge()); //33
+
+Employee.setSalary(1024);
+console.log(Employee.increaseSalary(50)); //1536
+
+//question 11
+
+
+Employee.address;
+Employee.setAddress = function (newAddress) {
+    Employee.address = newAddress;
+}
+
+Employee.getAddress = function () {
+    return Employee.address;
+}
+
+Employee.setAddress("Fairfield");
+console.log(Employee.getAddress()); //Fairfield	
+			
+    </pre>
+</body>
+</html>
