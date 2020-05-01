@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+           <h1>Assignment 9 - Jquery and DOM</h1>
+
+           <hr>
+
+           <hr>
+
+           <pre>
+            "use strict";
+
+            let person = {
+            
+                names: "",
+                dateofBirth: "",
+                getName: function () {
+                    return this.names;
+                },
+                setName: function (names) {
+                    this.names = names;
+                }
+            
+            };
+            
+            const john = Object.create(person);
+            john.setName("john");
+            john.dateOfBirth = new Date(1998, 12, 10);
+            
+            
+            console.log(`The person's name is ${john.getName()}  `)
+            console.log(`${name} was born on ${john.dateOfBirth}`)
+            
+            
+            //************* QUESTION -2 **********************/
+            
+            let Employee = Object.create(person);
+            
+            Employee = {
+                salary : 0.0,
+                hireDate: new Date(),
+                dojob: function(jobTitle){
+                    console.log(`${this.names} is a ${jobTitle} who earns $ ${this.salary}`)
+                }
+            };
+            
+            
+            Employee.names = "Anna";
+            Employee.salary =249,995.50;
+            Employee.dojob("programmer");
+            
+            // const anna = Object.create(Employee)
+            // anna.names="Binyam";
+            // anna.jobTitle("programmer");
+            // anna.salary=249995.50;
+            
+            // console.log(anna)
+            
+            //**************************************************  QUESTION 3 */
+            
+            // USING CONSTRUCTOR FUNCTION
+            
+            function person1(name1, dateOfBirth1){
+                this.name1 = name1;
+                this.dateOfBirth1=dateOfBirth1;
+            }
+            
+            const jon = new person1("peter", new Date(1985,11,10))
+            
+            person1.prototype.toString= function(){
+                       return `{ Name: ${jon.name1},Date of Birth: ${jon.dateOfBirth1}}`
+            }
+            
+            console.log(jon.toString())
+            
+            //**********************QUESTION 4  *** */
+            
+            $("#webform1").submit(function(event){
+                console.log($("#email").val());
+                console.log($("#password").val());
+                console.log($("#url").val());
+                event.preventDefault();
+            });
+            
+            
+            $("#webform2").submit(function(event){
+            
+                    console.log($("#productNumber").val());
+                    console.log($("#url").val());
+                    console.log($("#productName").val());
+                    console.log($("#unitPrice").val());
+                    console.log($("#supplier").val());
+                    console.log($("#supplyDate").val());
+                    event.preventDefault();
+            
+            });
+            
+            
+
+           </pre>
+</body>
+</html>
